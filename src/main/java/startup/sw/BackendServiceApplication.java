@@ -5,11 +5,13 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
 @Configuration
-@ComponentScan({"controllers", "services"})
 @EnableAutoConfiguration
+@ComponentScan({"startup.sw.controllers", "startup.sw.services", "startup.sw.services.impl", "startup.sw.entities"})
+@EnableJpaRepositories("startup.sw.repositories")
 public class BackendServiceApplication {
 
 	public static void main(String[] args) {
