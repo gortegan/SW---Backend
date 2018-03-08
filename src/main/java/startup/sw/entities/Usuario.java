@@ -17,7 +17,10 @@ public class Usuario {
 	String apellido;
 	String correo;
 	String pass;
+	int active;
 	Long id;
+	
+	
 	
 	public String getNombre() {
 		return nombre;
@@ -51,6 +54,12 @@ public class Usuario {
 	}
 	public void setId(Long id) {
 		this.id = id;
+	}
+	public int getActive() {
+		return active;
+	}
+	public void setActive(int active) {
+		this.active = active;
 	}
 	
 	
