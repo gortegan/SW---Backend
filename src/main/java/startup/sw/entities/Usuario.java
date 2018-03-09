@@ -13,6 +13,7 @@ public class Usuario {
 	
 	private static final long serialVersionUID = 187687687687686L;
 	
+	String usuario;
 	String nombre;
 	String apellido;
 	String correo;
@@ -22,6 +23,12 @@ public class Usuario {
 	
 	
 	
+	public String getUsuario() {
+		return usuario;
+	}
+	public void setUsuario(String usuario) {
+		this.usuario = usuario;
+	}
 	public String getNombre() {
 		return nombre;
 	}
