@@ -20,7 +20,7 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
-import startup.sw.entities.User;
+import startup.sw.entities.UserApp;
 import startup.sw.services.UserService;
 
 @CrossOrigin(origins = "http://localhost:4200", maxAge = 3600)
@@ -61,7 +61,7 @@ public class UserController implements ErrorController{
 			  if(userService.findUserByEmail(payload.getEmail()) != null){
 				  return "Login Correcto";
 			  }else{
-				  User user = new User();
+				  UserApp user = new UserApp();
 				  user.setActive(1);
 				  user.setName((String) payload.get("given_name"));
 				  user.setLastname((String) payload.get("family_name"));
@@ -83,7 +83,7 @@ public class UserController implements ErrorController{
 	  }
 	
 	@RequestMapping (method = RequestMethod.POST, value="/registrar")
-	public @ResponseBody User registrarUsuario(@RequestBody User user){
+	public @ResponseBody UserApp registrarUsuario(@RequestBody UserApp user){
 		if(userService.findUserByEmail(user.getEmail())==null){
 			user.setActive(1);
 			user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
